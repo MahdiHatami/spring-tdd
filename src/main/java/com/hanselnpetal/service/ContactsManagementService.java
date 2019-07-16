@@ -1,17 +1,19 @@
 package com.hanselnpetal.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.hanselnpetal.data.repos.CustomerContactRepository;
 import com.hanselnpetal.domain.CustomerContact;
+import org.springframework.stereotype.Service;
 
 @Service
 public class ContactsManagementService
 {
 
-    @Autowired
-    private CustomerContactRepository customerContactRepository;
+    private final CustomerContactRepository customerContactRepository;
+
+    public ContactsManagementService(CustomerContactRepository customerContactRepository)
+    {
+        this.customerContactRepository = customerContactRepository;
+    }
 
     public CustomerContact add(CustomerContact aContact)
     {
